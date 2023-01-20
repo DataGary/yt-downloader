@@ -56,12 +56,10 @@ elif sel == "p":
     print("Playlist title: ", play_list.title)
     print("Playlist views: ", play_list.views)
 
-    # output folder
-    dl_folder = selected_directory
     for video in play_list.videos:
         print(f'Downloading: {video.title}')
         video.register_on_progress_callback(on_progress)
-        video.streams.get_highest_resolution().download(dl_folder)
+        video.streams.get_highest_resolution().download(selected_directory)
 
     print('Downloads complete!')
 
